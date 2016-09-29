@@ -11,17 +11,15 @@
     "library"
   ],
   "license": "GPL-3.0",
-  "dependencies": {
-    "earcut": "^2.0.7",
-    "three.js": "^0.73.0"
-  },
   "devDependencies": {
     "benchmark": "^2.1.0",
+    "browserify": "latest",
     "chai": "^3.5.0",
+    "earcut": "^2.0.7",
     "jscs": "^3.0.5",
     "jsdoc": "^3.4.0",
     "jshint": "^2.9.2",
     "mocha": "^2.5.3",
-    "browserify": "latest"
+    "three.js": "^0.73.0"
   }
 }

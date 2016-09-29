@@ -1,6 +1,6 @@
 /**
  * @file IbisFactory.js
- * @version 0.2.4
+ * @version 0.2.5
  * @summary A JavaScript micro-library designed for data-heavy map applications.
  * @license GPL-3.0. See LICENSE.txt file included in this distribution.
  * @author Kyle Alexis Sargeant <kasargeant@gmail.com> {@link https://github.com/kasargeant https://github.com/kasargeant}.
@@ -10,7 +10,7 @@
 // Meta
 /*global importScripts:false */
 
-importScripts("../lib/earcut_browser.min.js");
+// importScripts("../lib/earcut_browser.min.js");  // DONE NOW DURING BUILD PHASE
 
 class IbisFactory {
     constructor() {

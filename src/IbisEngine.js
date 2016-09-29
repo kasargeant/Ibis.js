@@ -1,6 +1,6 @@
 /**
  * @file IbisEngine.js
- * @version 0.2.4
+ * @version 0.2.5
  * @summary A JavaScript micro-library designed for data-heavy map applications.
  * @license GPL-3.0. See LICENSE.txt file included in this distribution.
  * @author Kyle Alexis Sargeant <kasargeant@gmail.com> {@link https://github.com/kasargeant https://github.com/kasargeant}.
@@ -19,9 +19,9 @@ const $coords = document.getElementById("coords");
 class IbisEngine {
     /**
      *
-     * @param {string} idn
-     * @param {Array} layers
-     * @param {Array} offset
+     * @param {string} idn - a component ID
+     * @param {Array} layers - an array of layer configurations
+     * @param {Array} offset - the map offset from origin in meters (EPSG:3857).
      */
     constructor(idn, layers, offset) {
 
@@ -56,7 +56,7 @@ class IbisEngine {
 
         // Workers
         console.log("Initialising preprocessor...");
-        this.worker = new Worker("./src/IbisFactory.js");
+        this.worker = new Worker("../dist/IbisFactory.js");
         this.worker.postMessage({layers: this.layers});
 
         this.worker.onmessage = function(evt) {
@@ -137,7 +137,7 @@ class IbisEngine {
         console.log("Initialising locator...");
         this.locatorLastId = 0;
 
-        this.worker1 = new Worker("./src/IbisLocator.js");
+        this.worker1 = new Worker("../dist/IbisLocator.js");
         this.worker1.postMessage({layers: this.layers, datasource: "../demo/data/output_domain.osm_metadata.json"});
 
         this.worker1.onmessage = function(evt) {
