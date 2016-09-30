@@ -13,5 +13,5 @@
  *      {idn: "building", type: "Polygon", color: 0xCCCCCC, datasource: "../demo/data/output_domain.osm_building.json", hasEdge: false},
  *      {idn: "road", type: "MultiLineString", color: 0xFFFFFF, datasource: "../demo/data/output_domain.osm_road_multi.json"},
  * ];
- * const engine = new IbisEngine("MyMap", layers, [12345.0, -678900.0]);
+ * const engine = new IbisEngine("my-map-id", layers, [12345.0, -678900.0]);
  */

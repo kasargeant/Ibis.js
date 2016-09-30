@@ -14,12 +14,10 @@
 /*global unmask:false */
 /*global updatemask:false */
 
-const $coords = document.getElementById("coords");
-
 class IbisEngine {
     /**
      *
-     * @param {string} idn - a component ID
+     * @param {string} idn - the page DOM element ID to be used by the map.
      * @param {Array} layers - an array of layer configurations
      * @param {Array} offset - the map offset from origin in meters (EPSG:3857).
      */
@@ -29,7 +27,7 @@ class IbisEngine {
         this.debug = false;
 
         // Map and layer details
-        this.idn = idn || "Ibis Map";
+        this.idn = idn || "map";
         this.xOffset = offset[0]; //10478.0;
         this.yOffset = offset[1]; //-6708110.0;
 
@@ -156,12 +154,9 @@ class IbisEngine {
         this.init();
     }
 
-    /**
-     *
-     */
     init() {
 
-        this.container = document.getElementById("container");
+        this.container = document.getElementById(this.idn);
         this.camera = new THREE.PerspectiveCamera(27, window.innerWidth / window.innerHeight, 50, 100000);
         this.camera.position.z = 50000;
 
@@ -209,9 +204,6 @@ class IbisEngine {
         document.addEventListener("mousemove", this.onDocumentMouseMove.bind(this), false);
     }
 
-    /**
-     *
-     */
     onWindowResize() {
         this.camera.aspect = window.innerWidth / window.innerHeight;
         this.camera.updateProjectionMatrix();
@@ -219,10 +211,6 @@ class IbisEngine {
         this.controls.handleResize();
     }
 
-    /**
-     *
-     * @param event
-     */
     onDocumentMouseMove(event) {
         event.preventDefault();
         this.mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
@@ -248,9 +236,6 @@ class IbisEngine {
         }
     }
 
-    /**
-     *
-     */
     animate() {
         requestAnimationFrame(this.animate.bind(this));
         this.controls.update();
@@ -258,14 +243,7 @@ class IbisEngine {
         if(this.debug) {this.stats.update();}
     }
 
-    /**
-     *
-     */
     render() {
-        // if(this.debug) {
-        // let cp = this.camera.position;
-        // $coords.innerHTML = `Camera:<br /> ${cp.x}, ${cp.y}<br />
-        //                       Mouse:<br /> ${this.mouse.x}, ${this.mouse.y}<br />`;
         this.renderer.render(this.scene, this.camera);
     }
 }
