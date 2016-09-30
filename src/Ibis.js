@@ -1,6 +1,6 @@
 /**
  * @file Ibis.js
- * @version 0.2.5
+ * @version 0.2.6
  * @summary A JavaScript micro-library designed for data-heavy map applications.
  * @description A high-performance JavaScript GeoJSON mapping library for data-heavy web applications - both online and offline.
  * @license GPL-3.0. See LICENSE.txt file included in this distribution.

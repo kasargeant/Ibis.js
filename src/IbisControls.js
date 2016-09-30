@@ -1,6 +1,6 @@
 /**
  * @file IbisControls.js
- * @version 0.2.5
+ * @version 0.2.6
  * @summary A JavaScript micro-library designed for data-heavy map applications.
  * @license GPL-3.0. See LICENSE.txt file included in this distribution.
  * @author Eberhard Graether / http://egraether.com/
