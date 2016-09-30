@@ -106,5 +106,7 @@ And... if any other developers out there feel inspired to shoulder some of the '
 
 ### License
 
-Currently the library is released under the GPL-3.0 license.  
+Currently the Ibis.js library is released under the GPL-3.0 license.  See LICENSE.txt.
+
+Copyright &copy; Kyle Alexis Sargeant 2015-2016.
 
