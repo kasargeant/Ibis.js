@@ -11,7 +11,7 @@ Though Chrome is currently recommended as best for overall performance.
 * Speedily display large multi-layered sets of GeoJson vector data (especially heavy datasets i.e. > 100K GeoJSON records).
 * Work both with online and offline browsing (see Road Map section below for latter).
 * Works across all desktop browsers (and some mobile devices).
-* Entire library minimised and gzipped is < 100Kb!  About the cost of four 256x256 map tiles!
+* Entire library minimised and gzipped is only 100kB.  About the cost of four 256x256 map tiles!
 
 
 ### How stable is it - and what are it's limits?
