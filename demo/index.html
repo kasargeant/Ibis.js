@@ -139,8 +139,12 @@
             {idn: "building", type: "Polygon", color: 0xCCCCCC, datasource: "../demo/data/output_domain.osm_building.json", hasEdge: false},
             {idn: "road", type: "MultiLineString", color: 0xFFFFFF, datasource: "../demo/data/output_domain.osm_road_multi.json"},
             {idn: "railway", type: "MultiLineString", color: 0x000000, datasource: "../demo/data/output_domain.osm_railway_multi.json"},
-    //        {idn: "place", type: "Point", color: 0xFF0000, datasource: "../demo/data/output_domain.osm_place.json"},
-            {idn: "point", type: "Point", color: 0x00FFFF, datasource: "../demo/data/output_domain.osm_point.json"}
+    //        {idn: "place", type: "PointText", color: 0xFF0000, datasource: "../demo/data/output_domain.osm_place.json"},
+            {idn: "point", type: "Point", color: 0x00FFFF, datasource: "../demo/data/output_domain.osm_point.json", images: {
+                "atm": "../demo/img/icons/atm.png",
+                "bus stop": "../demo/img/icons/bus.png",
+                "traffic lights": "../demo/img/icons/lights.png"
+            }}
         ];
 
         const engine = new IbisEngine("demo-map", layers, [10478.0, -6708110.0]);
