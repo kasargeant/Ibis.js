@@ -147,7 +147,11 @@
             }}
         ];
 
-        const engine = new IbisEngine("demo-map", layers, [10478.0, -6708110.0]);
+        const engine = new IbisEngine("demo-map", layers, {
+            bgColor: 0x666666,
+            offset: [10478.0, -6708110.0],
+            zoom: [55.0, 200000.0]
+        });
 
     </script>
 

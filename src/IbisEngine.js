@@ -18,18 +18,24 @@ class IbisEngine {
     /**
      *
      * @param {string} idn - the page DOM element ID to be used by the map.
-     * @param {Array} layers - an array of layer configurations
-     * @param {Array} offset - the map offset from origin in meters (EPSG:3857).
+     * @param {Array} layers - the map layer definitions
+     * @param {Object=} options - the map configuration options.
+     * @param {string} options.bgColor - The background color of the map as RGB string.
+     * @param {Array} options.offset - the map offset from origin as 2D array in meters (EPSG:3857).
+     * @param {Array} options.zoom - the map zoom range as 2D array in meters (EPSG:3857) [closest, furthest].
      */
-    constructor(idn, layers, offset) {
+    constructor(idn, layers, options={}) {
 
         // Utilities
         this.debug = false;
 
         // Map and layer details
         this.idn = idn || "map";
-        this.xOffset = offset[0]; //10478.0;
-        this.yOffset = offset[1]; //-6708110.0;
+        this.bgColor = options.bgColor || 0x666666;
+        this.xOffset = options.offset[0]; //10478.0;
+        this.yOffset = options.offset[1]; //-6708110.0;
+        this.zoomMin = options.zoom[0] || 55.0;
+        this.zoomMax = options.zoom[1] || 200000.0;
 
         // Layers are in order of lowest z first.
         this.layers = layers;
@@ -157,7 +163,7 @@ class IbisEngine {
     init() {
 
         this.container = document.getElementById(this.idn);
-        this.camera = new THREE.PerspectiveCamera(27, window.innerWidth / window.innerHeight, 50, 100000);
+        this.camera = new THREE.PerspectiveCamera(27, window.innerWidth / window.innerHeight, this.zoomMin, this.zoomMax);
         this.camera.position.z = 50000;
 
         this.controls = new THREE.MapControls(this.camera);
@@ -169,8 +175,8 @@ class IbisEngine {
         this.controls.staticMoving = true;
         this.controls.dynamicDampingFactor = 0.3;
         this.controls.keys = [65, 83, 68];
-        this.controls.minDistance = 55;
-        this.controls.maxDistance = 100000;
+        this.controls.minDistance = this.zoomMin;
+        this.controls.maxDistance = this.zoomMax;
         this.controls.addEventListener("change", this.render.bind(this));
 
         this.scene = new THREE.Scene();
@@ -188,7 +194,7 @@ class IbisEngine {
         //renderer.setClearColor( scene.fog.color );
         this.renderer.setPixelRatio(window.devicePixelRatio);
         this.renderer.setSize(window.innerWidth, window.innerHeight);
-        this.renderer.setClearColor(0x666666); // Sets background color
+        this.renderer.setClearColor(this.bgColor); // Sets background color
         this.container.appendChild(this.renderer.domElement);
 
         if(this.debug) {
