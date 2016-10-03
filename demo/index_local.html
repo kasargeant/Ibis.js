@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Ibis.js: Demo - Greater London</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <style>
+        body {
+            color: #cccccc;
+            font-family:Monospace;
+            font-size:13px;
+            text-align:center;
+
+            background-color: #050505;
+            margin: 0px;
+            overflow: hidden;
+        }
+
+        #info {
+            position: absolute;
+            top: 0px; width: 100%;
+            padding: 5px;
+        }
+
+        #pick-info-top {
+            font-size:10px;
+            text-align:left;
+            color: black;
+            background-color: white;
+            position: absolute;
+            top: 10px; right: 10px;
+            width: 200px;
+            height: 140px;
+            padding: 5px 10px;
+        }
+        #pick-info-bottom {
+            font-size:10px;
+            text-align:left;
+            color: white;
+            background-color: black;
+            position: absolute;
+            top: 150px; right: 10px;
+            width: 200px;
+            height: 80px;
+            padding: 10px;
+        }
+        #pick-name {
+            font-size: 24pt;
+        }
+        #pick-class {
+            font-size: 14pt;
+        }
+        #pick-type {
+            font-size: 14pt;
+        }
+        #pick-id {
+            font-size: 14pt;
+        }
+
+        #coords {
+            font-size:10px;
+            text-align:left;
+            color: black;
+            background-color: white;
+            position: absolute;
+            bottom: 20px; right: 10px;
+            width: 200px;
+            height: 70px;
+            padding: 5px;
+        }
+
+        #loader {
+            opacity: .5;
+            background-color: orange;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 100;
+        }
+
+
+        #loader-text {
+            text-align:center;
+            color: black;
+            background-color: grey;
+            position: absolute;
+            border: solid 1px black;
+            top: 40%;
+            left: 40%; right: 40%;
+            width: 300px;
+            height: 50px;
+            padding: 5px;
+            z-index: 150;
+        }
+
+        a {
+
+            color: #0080ff;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="demo-map"></div>
+
+    <div id="info">Greater London v0.2.6</div>
+    <div id="loader"></div>
+    <div id="loader-text">Ibis loading, 'city:london'.</div>
+    <div id="pick-info-top">
+        <span id="pick-name"></span>
+    </div>
+    <div id="pick-info-bottom">
+        Class: <span id="pick-class"></span><br>
+        Type: <span id="pick-type"></span><br>
+        OSM ID: <span id="pick-id"></span>
+    </div>
+    <p>&copy; 2015-2016 Kyle Alexis Sargeant.</p> <p>Library and supplementary content is available under <a href="../LICENSE.txt">GPL-3.0</a> license.</p>
+    <!-- <div id="coords"></div> -->
+    <script>
+        if(!module) {var module = {};}
+    </script>
+    <script src="../dist/Ibis.js"></script>
+    <script>
+        function updatemask(newHtml) {
+            var $loaderText = document.getElementById("loader-text");
+            $loaderText.innerHTML = newHtml;
+        }
+
+        function unmask() {
+            document.getElementById("loader-text").style.display = "none";
+            document.getElementById("loader").style.display = "none";
+        }
+
+        const layers = [
+            {idn: "natural", type: "Polygon", color: 0x00FF77, datasource: "../demo/data/output_domain.osm_natural.json"},
+            // {idn: "landuse", type: "Polygon", color: 0x000077, datasource: "../demo/data/output_domain.osm_landuse.json"},
+    //        {idn: "waterway", type: "MultiLineString", color: 0x0000CC, datasource: "../demo/data/output_domain.osm_waterway_multi.json"},
+            {idn: "building", type: "Polygon", color: 0xCCCCCC, datasource: "../demo/data/output_domain.osm_building.json", hasEdge: false},
+            {idn: "road", type: "MultiLineString", color: 0xFFFFFF, datasource: "../demo/data/output_domain.osm_road_multi.json"},
+            {idn: "railway", type: "MultiLineString", color: 0x000000, datasource: "../demo/data/output_domain.osm_railway_multi.json"},
+    //        {idn: "place", type: "PointText", color: 0xFF0000, datasource: "../demo/data/output_domain.osm_place.json"},
+            {idn: "point", type: "Point", color: 0x00FFFF, datasource: "../demo/data/output_domain.osm_point.json", images: {
+                "atm": "../demo/img/icons/atm.png",
+                "bus stop": "../demo/img/icons/bus.png",
+                "traffic lights": "../demo/img/icons/lights.png"
+            }}
+        ];
+
+        const engine = new IbisEngine("demo-map", layers, {
+            bgColor: 0x666666,
+            offset: [10478.0, -6708110.0],
+            zoom: [55.0, 200000.0]
+        });
+
+    </script>
+
+</body>
+</html>
