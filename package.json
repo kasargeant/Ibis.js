@@ -2,7 +2,7 @@
   "name": "Ibis.js",
   "description": "A high-performance JavaScript GeoJSON mapping library - for data-heavy web applications - both online and offline.",
   "author": "Kyle Alexis Sargeant <kasargeant@gmail.com> (https://github.com/kasargeant/)",
-  "version": "0.2.6",
+  "version": "0.3.0",
   "keywords": [
     "javascript",
     "gis",
@@ -18,7 +18,7 @@
     "earcut": "^2.0.7",
     "jscs": "^3.0.5",
     "jsdoc": "^3.4.0",
-    "jshint": "^2.9.2",
+    "jshint": "^2.9.4",
     "mocha": "^2.5.3",
     "three.js": "^0.73.0"
   }
