@@ -1,5 +1,9 @@
 # IBIS.JS
 
+```diff
+- THIS PROJECT IS NOW UNMAINTAINED AND FOR ARCHIVING PURPOSES ONLY.
+```
+
 ## A high-performance JavaScript GeoJSON mapping library for data-heavy web applications - both online and offline.
 
 Written in modern Javascript(ES6) - works across all core browsers.  Tested extensively with latest stable releases of: IE, Firefox and Chrome.
@@ -75,34 +79,7 @@ NOTE: If your webserver does not support the fetching of gzipped source files - 
 
 ### Roadmap
 
-Four additional features seem to be necessary to bring the library up to a minimum standard for typical production scenarios.
-They are:
-
-- Text display
-- Full offline browsing support
-- Geo selection and editing functionality
-- More network options, including WebSocket, Socket.IO and possibly MsgPack usage.
-
-A fifth possible feature - is better mobile support.  Because, although I don't envisage a mobile device as the best
-device (yet!... they're always improving of course!) for the types of geo-spatial application the library's core
-audience is focused on... still... it's obviously very handy for users to have the OPTION of being able to quickly check something via their
-mobile device.  But some sort of smart/cached/staged solution is required... to compensate for the mobile's lesser performance
-and ever-possible network issues.
-
-So that's the current road map for Ibis.  However, as with most Open-Source developers, I don't have the luxury of spending my time just working on my projects
-like Ibis.js... but need instead to put most of my time to "the full-time job"...
-
-...all these features aren't going to happen by tomorrow!  Or even the day after tomorrow!
-
-Instead, I expect to have the free time to tackle them at a rate of about one a month.  So users should expect substantial updates to the
-library at around the same frequency.
-
-Finally, as a promise, I will endeavour to keep the library's growing API - as backwards-compatible as possible.  However, a lot of functionality still has to be added and
-integrated to the library - so I don't imagine that real stability in the API will be achieved until the current road map
-is complete.  Say around end-2016.
-
-And... if any other developers out there feel inspired to shoulder some of the 'heavy-lifting' ;) ... then please be my guest! ;))
-
+Development on this version has stopped.  Better approaches have made it obsolete.  This distribution is therefore left here for archiving purposes only.
 
 ### License
 

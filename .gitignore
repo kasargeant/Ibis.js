@@ -1,0 +1,19 @@
+# DEFAULT GIT IGNORE FILE
+
+# OS CHAFF
+.DS_Store
+
+# TYPICAL TOOLCHAIN
+.idea/
+
+# TYPICAL MODULE HANDLERS
+node_modules/
+
+# TEMPORARY FOLDERS AND FILES
+scratch/
+temp/
+
+# FIXME - KEEP OUT OF DISTRO UNTIL A MORE STABLE VERSION...
+/bin/
+/conf/
+/docs/
